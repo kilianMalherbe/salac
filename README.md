@@ -1,4 +1,8 @@
+
+<img alt="Texte alternatif" src="/src/assets/img/logo.webp" title="Titre de l&amp;amp;#39;image" width="300"/>.
+
 Ce [monorepo](https://en.wikipedia.org/wiki/Monorepo) contient le projet salac.
+- projet 
 
 Une documentation markdown est disponible est disponible le repertoire [documentation](documentation).
 
@@ -6,7 +10,7 @@ Une documentation markdown est disponible est disponible le repertoire [document
 - Propriétaire du produit : 
 - Chef de mêlée/kanban : 
 - Référent technique : 
-- Référent infrastructure : Manon Biaudelle
+- Référent infrastructure : 
 - Site de développement : 
 - Site de production : https://salac.store/#/
 - Branche déployée sur le site de développement : `develop`

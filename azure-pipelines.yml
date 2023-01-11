@@ -1,0 +1,53 @@
+# Node.js with Vue
+# Build a Node.js project that uses Vue.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- develop
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+  
+- script: |
+    npm ci
+  displayName: 'NPM CI'
+
+- script: |
+    echo "Structure of work folder of this pipeline:"
+    tree $(Agent.WorkFolder)\1 /f
+
+    echo "Build.ArtifactStagingDirectory:" 
+
+    echo "$(Build.ArtifactStagingDirectory)"
+
+    echo "Build.BinariesDirectory:" 
+
+    echo "$(Build.BinariesDirectory)"
+
+    echo "Build.SourcesDirectory:"
+
+    echo "$(Build.SourcesDirectory)"
+  displayName: 'Affichage du repertoire'
+  
+- script: |
+    .\node_modules\.bin\vue-cli-service build
+  displayName: 'Building Vue app'
+
+- task: CmdLine@2
+  inputs:
+    script: 'npm install -g firebase-tools'
+    workingDirectory: '$(Agent.ToolsDirectory)'
+  displayName: 'Install firebase tools'
+
+- task: CmdLine@2
+  inputs:
+    script: 'firebase deploy --token "$(FIREBASE_TOKEN)" -m "$(Build.BuildNumber)"'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\\dist\\'
+  displayName: 'firebase publish -m "$(Build.BuildNumber)"'
