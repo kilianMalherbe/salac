@@ -35,7 +35,7 @@ jobs:
       run: npm install -g firebase-tools
       shell: cmd
     - name: Connexion a Firebase
-      run: firebase login --no-localhost
+      run: firebase login:ci
       shell: cmd
     - name: firebase publish -m "${{ github.run_number }}"
       run: firebase deploy --token "${{ env.FIREBASE_TOKEN }}" -m "${{ github.run_number }}"
