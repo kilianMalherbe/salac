@@ -16,4 +16,4 @@ Nouvelles technologies :
 
 | Avant | Après                                               |
 |----------------------------|-----------------------------------------------------------|
-| <img alt="avant" src="/src/assets/img/preview.gif" title="avant" width="300"/> | <img alt="apres" src="/src/assets/img/avant.gif" title="apres" width="300"/> |
+| <img alt="avant" src="/src/assets/img/avant.gif" title="avant" width="300"/> | <img alt="apres" src="/src/assets/img/apres.png" title="apres" width="300"/> |
